@@ -26,7 +26,30 @@ class BurgerBuilder extends Component {
             cheese: 0,
             meat: 0
         },
-        totalPrice: 4
+        totalPrice: 4,
+        purchasable: false
+    }
+
+    /**
+     *  updatePurchaseState function -
+     *  Get updatedIngredients after adding or removing ingredients (after addIngredientHander function and after removeIngredientHander)
+     *  Updating this.state.purchasable according the sum of all the ingredients (true/false)
+     *  And by that we will update the ORDER button which in BuildControls component
+     */
+    updatePurchaseState(updatedIngredients){
+
+        const sum = Object.keys(updatedIngredients)
+            .map(igKey => {
+                return updatedIngredients[igKey];
+            })
+            .reduce((sum, el) => {
+                return sum + el;
+            } ,0);
+
+        this.setState({
+            purchasable: sum > 0
+        });
+
     }
 
     /**
@@ -34,6 +57,7 @@ class BurgerBuilder extends Component {
      * On adding ingredient it will add it to the Burger sandwitch
      * It will add to the oldCount of the ingredient +1
      * And it will add the price of the specifiec ingredient to to the old price which is the Burger price + all the ingredients that already include in it
+     * Excute updatePurchaseState (updatedIngredients) for updating this.state.purchasable
      */
     addIngredientHander = (type) => {
         const oldCount = this.state.ingredients[type];
@@ -48,9 +72,17 @@ class BurgerBuilder extends Component {
         this.setState({
             ingredients: updatedIngredients,
             totalPrice: newPrice
-        })
+        });
+        this.updatePurchaseState(updatedIngredients);
     }
 
+    /**
+     * removeIngredientHander function - Removing the ingredient and Deduct the price of the ingredient
+     * On removing ingredient it will remove from the Burger sandwitch
+     * It will deduct to the oldCount of the ingredient -1
+     * And it will deduct the price of the specifiec ingredient from the old price which is the Burger price + all the ingredients that already include in it
+     * Excute updatePurchaseState (updatedIngredients) for updating this.state.purchasable
+     */
     removeIngredientHander = (type) => {
         const oldCount = this.state.ingredients[type];
         if (oldCount <= 0){
@@ -67,7 +99,8 @@ class BurgerBuilder extends Component {
         this.setState({
             ingredients: updatedIngredients,
             totalPrice: newPrice
-        })
+        });
+        this.updatePurchaseState(updatedIngredients);
     }
 
     render(){
@@ -86,6 +119,7 @@ class BurgerBuilder extends Component {
                     ingredientsRemoved={this.removeIngredientHander} 
                     disabled={disabledInfo}
                     price={this.state.totalPrice}
+                    purchasable={this.state.purchasable}
                 />
             </Auxiliary>
         );
