@@ -29,6 +29,19 @@ const burger = (props) => {
             return arr.concat(el); // concat between the 2 arrays
         },[]);
 
+    /**
+     * More readible code for calculating the ingredient sum dynamically
+     */
+    // let transformedIngredients = [];
+    // for (let attr in props.ingredients) {
+    //     console.log(attr);
+    //     for (let i =0; i < props.ingredients[attr];i++) {
+    //         transformedIngredients.push(
+    //             <BurgerIngredient key={attr + i} type={attr}></BurgerIngredient>
+    //         )
+    //     }
+    // }
+
     if(transformedIngredients.length === 0){
         transformedIngredients = <p>Please Start adding ingredients</p>
     }
