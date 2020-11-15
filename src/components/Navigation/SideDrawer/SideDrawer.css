@@ -25,3 +25,7 @@
 .Close {
     transform: translateX(-100%); /* this will shift it to the left*/
 }
+
+.Logo{
+    height: 11%;
+}
