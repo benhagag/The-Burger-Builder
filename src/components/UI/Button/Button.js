@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Button.css';
 
-const button = (props) => {
+const button = (props) => (
 
     <button
         className={
@@ -14,6 +14,6 @@ const button = (props) => {
     >
         {props.children}
     </button>
-}
+)
 
-export default import('react').ButtonHTMLAttributes;
+export default button;
