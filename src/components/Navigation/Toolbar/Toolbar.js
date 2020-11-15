@@ -6,7 +6,9 @@ import NavigaitonItems from '../NavigationItems/NavigationItems';
 const toolbar = (props) => (
     <header className={classes.Toolbar}>
         <div>MENU</div>
-       <Logo />
+        <Logo 
+            height="80%" // setting the height as a property where we simply pass the percentage
+        />
         <nav>
             <NavigaitonItems /> 
         </nav>
