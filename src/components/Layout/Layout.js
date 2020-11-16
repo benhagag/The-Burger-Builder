@@ -8,9 +8,11 @@ import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
 class Layout extends Component {
 
     state ={
-        showSidedrawer : true
+        showSidedrawer : false
     };
+
     sideDrawerClosedHandler = () => this.setState({showSidedrawer: false});
+    sideDrawerOpendHandler = () => this.setState({showSidedrawer: true});
     
 
     render (){
@@ -18,7 +20,7 @@ class Layout extends Component {
         return (
             // using Auxiliary HOC and get the props.childern from it
             <Auxiliary>
-            <Toolbar />
+            <Toolbar clicked={this.sideDrawerOpendHandler} />
             <SideDrawer 
                 closed={this.sideDrawerClosedHandler}
                 open={this.state.showSidedrawer}
