@@ -12,7 +12,12 @@ class Layout extends Component {
     };
 
     sideDrawerClosedHandler = () => this.setState({showSidedrawer: false});
-    sideDrawerOpendHandler = () => this.setState({showSidedrawer: true});
+
+    sideDrawerToggledHandler = () => {
+        this.setState((prevState) => {
+            return {showSidedrawer: !prevState.showSidedrawer}
+        });
+    }
     
 
     render (){
@@ -20,7 +25,7 @@ class Layout extends Component {
         return (
             // using Auxiliary HOC and get the props.childern from it
             <Auxiliary>
-            <Toolbar clicked={this.sideDrawerOpendHandler} />
+            <Toolbar drawToggleClicked={this.sideDrawerToggledHandler} />
             <SideDrawer 
                 closed={this.sideDrawerClosedHandler}
                 open={this.state.showSidedrawer}
