@@ -16,7 +16,11 @@ class Modal extends Component {
     */
 
     shouldComponentUpdate(nextProps, nextState){
-        return nextProps.show !== this.props.show; // TRUE OR FALSE
+
+        return nextProps.show !== this.props.show
+                ||
+                nextProps.children !== this.props.children // props of <OrderSummary/> !== props of <Spinner /> they are the children of the Modal
+                ; // TRUE OR FALSE
     }
 
     render(){
