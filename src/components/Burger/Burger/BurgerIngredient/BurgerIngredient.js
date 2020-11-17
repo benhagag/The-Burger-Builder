@@ -33,7 +33,7 @@ class BurgerIngredinet extends Component{
             case ('salad'):
                 ingredient = <div className={classes.Salad}></div>
                 break;
-            case ('bacon'):
+            case ('foieGras'):
                 ingredient = <div className={classes.Bacon}></div>
                 break;
             default:
