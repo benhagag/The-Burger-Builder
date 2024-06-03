@@ -36,6 +36,9 @@ class BurgerIngredinet extends Component{
             case ('foieGras'):
                 ingredient = <div className={classes.Bacon}></div>
                 break;
+            case('onion'):
+                ingredient = <div className={classes.Onion}></div>
+                break;
             default:
                 ingredient = null;
         }

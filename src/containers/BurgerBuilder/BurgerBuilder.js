@@ -12,6 +12,7 @@ import axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
+    onion: 0.2,
     cheese: 0.4,
     meat: 1.3,
     foieGras: 0.7
