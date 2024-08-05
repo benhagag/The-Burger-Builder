@@ -2,6 +2,7 @@
   "name": "burger-builder-starting-setup",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://benhagag.github.io/The-Burger-Builder/",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "axios": "^0.21.0",
